@@ -76,7 +76,7 @@ module.exports = function (_ref) {
 
     var registerFileWatcher = module.exports.registerFileWatcher = function (path, opts) {
         var watcher = new FileWatcher(path, opts);
-        watcher.on('change', handleFileChange);
+        watcher.on('all', handleFileChange);
         return watcher;
     };
 

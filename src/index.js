@@ -68,7 +68,7 @@ module.exports = function ({port=8082, path=".", config}) {
 
     const registerFileWatcher = module.exports.registerFileWatcher = function (path, opts) {
         const watcher = new FileWatcher(path, opts);
-        watcher.on('change', handleFileChange);
+        watcher.on('all', handleFileChange);
         return watcher;
     };
 

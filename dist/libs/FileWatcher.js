@@ -4,13 +4,13 @@
  * Created by moyu on 2017/3/28.
  */
 
-var fs = require('fs');
+var chokidar = require('chokidar');
 var util = require('util');
 
 function FileWatcher(filename, options) {
-    this.options = Object.assign({ recursive: true }, options);
+    this.options = Object.assign({ ignoreInitial: true, cwd: filename }, options);
     this.filename = filename;
-    this.__watch = fs.watch(filename, this.options);
+    this.__watch = chokidar.watch(filename, this.options);
     return this;
 }
 
